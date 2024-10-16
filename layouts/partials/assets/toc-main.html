@@ -4,6 +4,7 @@
     Visit gethinode.com/license for more details.
 -->
 
+{{ $headingcount := .Site.Params.tocHeader.min | default 1 }}
 {{ $headings := .headings | default slice }}
 {{- range .Fragments.Headings }}
     {{- range .Headings }}
@@ -11,7 +12,7 @@
     {{- end -}}
 {{- end -}}
 
-{{- if gt (len $headings) 1 }}
+{{- if gt (len $headings) $headingcount }}
 <nav class="navbar navbar-expand navbar-services p-0 fs-5">
     <div class="container-fluid p-0 pb-3 border-bottom">
         <div class="collapse navbar-collapse" id="navbarNav">
